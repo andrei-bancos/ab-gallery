@@ -1,5 +1,5 @@
-import 'bootstrap/dist/css/bootstrap.css';
-import '@/styles/globals.css';
+import 'bootstrap/dist/css/bootstrap-grid.css';
+import '@/styles/globals.scss';
 import { Open_Sans } from "@next/font/google";
 
 const website_font = Open_Sans({ subsets: ['latin'] });
