@@ -1,0 +1,68 @@
+@import "colors";
+
+.navbar {
+  padding: 30px 0;
+  margin-bottom: 50px;
+  background-color: #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.35);
+  ul {
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px 50px;
+    .left {
+      display: flex;
+      align-items: center;
+      gap: 0 30px;
+      a {
+        display: flex;
+      }
+      h1 {
+        font-size: 25px;
+        font-weight: 600;
+      }
+    }
+
+    .right {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px 30px;
+      .user {
+        display: flex;
+        flex-direction: column;
+        h2 {
+          font-size: 20px;
+          font-weight: 600;
+        }
+        p {
+          color: $main;
+          font-size: 15px;
+          font-weight: 500;
+        }
+      }
+      .logoutBTN {
+        color: #ffffff;
+        font-size: 16px;
+        font-weight: 500;
+        width: 150px;
+        height: 50px;
+        border: none;
+        cursor: pointer;
+        border-radius: 10px;
+        background-color: $main;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .navbar {
+    ul {
+      flex-direction: column;
+    }
+  }
+}
