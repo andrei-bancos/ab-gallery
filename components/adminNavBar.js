@@ -1,8 +1,10 @@
 import styles from "@/styles/AdminNavbar.module.scss";
 import Link from "next/link";
 import Image from "next/image";
+import {useSession, signOut} from "next-auth/react";
 
 export default function AdminNavBar() {
+  const {data: session} = useSession();
   return (
     <nav className={styles.navbar}>
       <div className="container">
@@ -12,12 +14,12 @@ export default function AdminNavBar() {
             <h1>Admin panel</h1>
           </li>
           <li className={styles.right}>
-            <Image src="/gg" width="65" height="65" alt="avatar" />
+            <Image src={session.user.image} width="65" height="65" alt="avatar" />
             <div className={styles.user}>
-              <h2>Bancos Andrei Marius</h2>
-              <p>bancos.andrei.2002@gmail.com</p>
+              <h2>{session.user.name}</h2>
+              <p>{session.user.email}</p>
             </div>
-            <button className={styles.logoutBTN}>Logout</button>
+            <button className={styles.logoutBTN} onClick={() => signOut()}>Logout</button>
           </li>
         </ul>
       </div>
