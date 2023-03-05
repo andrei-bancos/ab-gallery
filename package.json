@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@next/font": "13.1.6",
+    "@prisma/client": "^4.11.0",
     "bootstrap": "^5.2.3",
     "eslint": "8.33.0",
     "eslint-config-next": "13.1.6",
@@ -19,5 +20,8 @@
     "react-dom": "18.2.0",
     "sass": "^1.58.2",
     "sharp": "^0.31.3"
+  },
+  "devDependencies": {
+    "prisma": "^4.11.0"
   }
 }

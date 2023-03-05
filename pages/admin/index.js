@@ -4,8 +4,10 @@ import styles from "/styles/Admin.module.scss";
 import Image from "next/image";
 import Footer from "@/components/footer";
 import {useSession, getSession} from "next-auth/react";
+import {useRouter} from "next/router";
 
 export default function AdminIndex() {
+  const router = useRouter();
   const { data: session, status } = useSession();
   if(session && status === "authenticated"){
     return (
@@ -16,7 +18,7 @@ export default function AdminIndex() {
         <div className={styles.admin}>
           <AdminNavBar />
           <div className={`container ${styles.container}`}>
-            <div className={styles.generalSettings}>
+            <div className={styles.generalSettings} onClick={() => router.push("/admin/general-settings")}>
               <Image src="/img/admin/gsettings.svg" width="60" height="56" alt="general settings" />
               <h3>General settings</h3>
             </div>
@@ -27,7 +29,7 @@ export default function AdminIndex() {
               </div>
               <div className={styles.col}>
                 <Image src="/img/admin/collections.svg" width="150" height="150" alt="add" />
-                <h3>Add new collections</h3>
+                <h3>View existent collections</h3>
               </div>
             </div>
           </div>

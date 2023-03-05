@@ -10,7 +10,7 @@ export default function App({ Component, pageProps, session }) {
     <>
       <SessionProvider session={session}>
         <style jsx global>{`
-          html, body, form, input, button, textarea {
+          html, body, form, label, input, button, textarea {
             font-family: ${website_font.style.fontFamily};
           }
         `}</style>

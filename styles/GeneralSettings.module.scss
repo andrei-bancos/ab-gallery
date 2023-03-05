@@ -1,0 +1,123 @@
+@import "colors";
+
+.generalSettings {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f5f5f5;
+  .container {
+    display: flex;
+    max-width: 1050px;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    .settings {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      padding: 50px 0;
+      margin-bottom: 50px;
+      border-radius: 10px;
+      align-items: center;
+      background-color: #ffffff;
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.35);
+      .success, .error {
+        color: #ffffff;
+        padding: 5px 10px;
+        border-radius: 5px;
+        font-size: 18px;
+        margin-top: 20px;
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.35);
+      }
+      .success {
+        background-color: $main;
+      }
+      .error {
+        background-color: #7e3a3a;
+      }
+      .head {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 30px;
+        margin: 0 30px;
+        h2 {
+          font-size: 30px;
+          font-weight: 600;
+          text-align: center;
+        }
+      }
+      .row {
+        display: flex;
+        max-width: 710px;
+        width: 100%;
+        gap: 30px 50px;
+        justify-content: space-between;
+        margin: 30px 0;
+        padding: 0 30px;
+        .col {
+          display: flex;
+          width: 100%;
+          flex-direction: column;
+          gap: 30px 0;
+          .item {
+            display: flex;
+            gap: 5px;
+            flex-direction: column;
+            label {
+              font-size: 20px;
+              font-weight: 500;
+            }
+            input[type=text], input[type=url], textarea {
+              font-size: 18px;
+              max-width: 300px;
+              width: 100%;
+              height: 50px;
+              padding: 12px 20px;
+              border: none;
+              resize: none;
+              outline: none;
+              border-radius: 10px;
+              background-color: #eeeeee;
+              box-shadow: 0 4px 4px rgba(0, 0, 0, 0.35);
+            }
+            input[type=text]:focus, input[type=url]:focus, textarea:focus {
+              border: 2px solid $main;
+            }
+            textarea {
+              height: 162px;
+            }
+          }
+        }
+      }
+      button {
+        color: #ffffff;
+        font-size: 20px;
+        font-weight: 500;
+        cursor: pointer;
+        width: 150px;
+        height: 50px;
+        border: none;
+        border-radius: 10px;
+        background-color: $main;
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.35);
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 675px) {
+  .generalSettings {
+    .container {
+      .settings {
+        .row {
+          flex-wrap: wrap;
+          .item {
+            align-items: center;
+          }
+        }
+      }
+    }
+  }
+}
