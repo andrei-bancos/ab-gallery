@@ -6,7 +6,7 @@ export default async function handler(req, res) {
   if(req.method === "POST" && session && session.user.email === process.env.adminEmail) {
     const data = JSON.parse(req.body);
     try {
-      const createData = await prisma.general_settings.createMany({
+      const createData = await prisma.generalSettings.createMany({
         data: [
           {name: 'title', value: data.title},
           {name: 'description', value: data.description},
@@ -19,25 +19,25 @@ export default async function handler(req, res) {
         skipDuplicates: true
       })
       if(createData.count === 0) {
-        const updateTitle = await prisma.general_settings.update({
+        const updateTitle = await prisma.generalSettings.update({
           where: { name: 'title' }, data: {value: data.title}
         })
-        const updateDesc = await prisma.general_settings.update({
+        const updateDesc = await prisma.generalSettings.update({
           where: { name: 'description' }, data: {value: data.description}
         })
-        const updateKeyWords = await prisma.general_settings.update({
+        const updateKeyWords = await prisma.generalSettings.update({
           where: { name: 'keyWords' }, data: {value: data.keyWords}
         })
-        const updateIG = await prisma.general_settings.update({
+        const updateIG = await prisma.generalSettings.update({
           where: { name: 'instagram' }, data: {value: data.instagram}
         })
-        const updateFB = await prisma.general_settings.update({
+        const updateFB = await prisma.generalSettings.update({
           where: { name: 'facebook' }, data: {value: data.facebook}
         })
-        const updateTwitter = await prisma.general_settings.update({
+        const updateTwitter = await prisma.generalSettings.update({
           where: { name: 'twitter' }, data: {value: data.twitter}
         })
-        const updateYT = await prisma.general_settings.update({
+        const updateYT = await prisma.generalSettings.update({
           where: { name: 'youtube' }, data: {value: data.youtube}
         })
       }

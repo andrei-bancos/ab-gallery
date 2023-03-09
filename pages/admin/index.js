@@ -23,7 +23,7 @@ export default function AdminIndex() {
               <h3>General settings</h3>
             </div>
             <div className={styles.row}>
-              <div className={styles.col}>
+              <div className={styles.col} onClick={() => router.push("/admin/add")}>
                 <Image src="/img/admin/add.svg" width="150" height="150" alt="add" />
                 <h3>Add new collections</h3>
               </div>

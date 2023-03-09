@@ -9,13 +9,13 @@ import prisma from "/prisma/client";
 
 export default function GeneralSettings({gSettings}) {
   const { data: session, status } = useSession();
-  const [title, setTitle] = useState(gSettings.title.value);
-  const [keyWords, setKeyWords] = useState(gSettings.keywords.value);
-  const [description, setDescription] = useState(gSettings.description.value);
-  const [instagram, setInstagram] = useState(gSettings.instagram.value);
-  const [facebook, setFacebook] = useState(gSettings.facebook.value);
-  const [twitter, setTwitter] = useState(gSettings.twitter.value);
-  const [youtube, setYoutube] = useState(gSettings.youtube.value);
+  const [title, setTitle] = useState(gSettings.title === null ? '' : gSettings.title.value);
+  const [keyWords, setKeyWords] = useState(gSettings.keywords === null ? '' : gSettings.keywords.value);
+  const [description, setDescription] = useState(gSettings.description === null ? '' : gSettings.description.value);
+  const [instagram, setInstagram] = useState(gSettings.instagram === null ? '' : gSettings.instagram.value);
+  const [facebook, setFacebook] = useState(gSettings.facebook === null ? '' : gSettings.instagram.value);
+  const [twitter, setTwitter] = useState(gSettings.twitter === null ? '' : gSettings.twitter.value);
+  const [youtube, setYoutube] = useState(gSettings.youtube === null ? '' : gSettings.youtube.value);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(false);
 
@@ -196,13 +196,13 @@ export async function getServerSideProps({req}) {
   }
 
   if(session && session.user.email === process.env.adminEmail) {
-    const title = await prisma.general_settings.findFirst({ where: { name: 'title' } })
-    const description = await prisma.general_settings.findFirst({ where: { name: 'description' } })
-    const keywords = await prisma.general_settings.findFirst({ where: { name: 'keyWords' } })
-    const instagram = await prisma.general_settings.findFirst({ where: { name: 'instagram' } })
-    const facebook = await prisma.general_settings.findFirst({ where: { name: 'facebook' } })
-    const twitter = await prisma.general_settings.findFirst({ where: { name: 'twitter' } })
-    const youtube = await prisma.general_settings.findFirst({ where: { name: 'youtube' } })
+    const title = await prisma.generalSettings.findFirst({ where: { name: 'title' } })
+    const description = await prisma.generalSettings.findFirst({ where: { name: 'description' } })
+    const keywords = await prisma.generalSettings.findFirst({ where: { name: 'keyWords' } })
+    const instagram = await prisma.generalSettings.findFirst({ where: { name: 'instagram' } })
+    const facebook = await prisma.generalSettings.findFirst({ where: { name: 'facebook' } })
+    const twitter = await prisma.generalSettings.findFirst({ where: { name: 'twitter' } })
+    const youtube = await prisma.generalSettings.findFirst({ where: { name: 'youtube' } })
     return {
       props: {
         session,

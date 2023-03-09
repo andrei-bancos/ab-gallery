@@ -77,9 +77,9 @@ export default function Home({websiteTitle, websiteDescription, websiteKeywords}
 
 export async function getServerSideProps() {
   try {
-    const websiteTitle = await prisma.general_settings.findFirst({where: {name: 'title'}})
-    const websiteDescription = await prisma.general_settings.findFirst({where: {name: 'descrsiption'}})
-    const websiteKeywords = await prisma.general_settings.findFirst({where: {name: 'keysWords'}})
+    const websiteTitle = await prisma.generalSettings.findFirst({where: {name: 'title'}})
+    const websiteDescription = await prisma.generalSettings.findFirst({where: {name: 'descrsiption'}})
+    const websiteKeywords = await prisma.generalSettings.findFirst({where: {name: 'keysWords'}})
     return {
       props: {websiteTitle, websiteDescription, websiteKeywords}
     }
