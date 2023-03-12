@@ -20,12 +20,13 @@ model Collections {
   id          Int      @id @default(autoincrement())
   name        String   @unique
   description String
+  slug        String   @unique
   images      Images[]
 }
 
 model Images {
   id            Int          @id @default(autoincrement())
-  publicId      String
+  publicId      String       @unique
   link          String
   Collections   Collections? @relation(fields: [collectionsId], references: [id])
   collectionsId Int?

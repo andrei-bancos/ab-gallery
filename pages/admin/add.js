@@ -30,7 +30,7 @@ export default function Add() {
       let isSuccess = fileTypes.indexOf(checkExt) > -1;
       if(isSuccess) {
         if(file.size > 10485760) {
-          setError(file.name + '- to big..');
+          setError(file.name + ' - too big..');
           setTimeout(() => setError(''), 3000);
           continue;
         }
@@ -69,7 +69,7 @@ export default function Add() {
           setError('Add images...');
         } else {
           setError('');
-          fetch('/api/upload', {
+          fetch('/api/admin/upload', {
             body: JSON.stringify(data),
             method: "POST"
           }).then(() => {
