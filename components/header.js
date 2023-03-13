@@ -3,7 +3,6 @@ import Image from "next/image";
 import styles from "/styles/Header.module.scss";
 import {useRouter} from "next/router";
 import {useState} from "react";
-import headerBG from "/public/headerBG.jpg";
 
 export default function Header() {
   const router = useRouter();
@@ -23,7 +22,7 @@ export default function Header() {
         className={styles.header}
         style={{
           background: `linear-gradient(80.7deg, rgba(109, 29, 241, 0.198) 0%, rgba(0, 0, 0, 0.801) 51.56%, 
-          rgba(0, 0, 0, 0.9) 100%), url(${headerBG.src})`
+          rgba(0, 0, 0, 0.9) 100%), url("https://res.cloudinary.com/ddh7mvlcv/image/upload/c_scale,w_1920/headerBG_bb10wa")`
       }}
       >
         <div className={`container ${styles.hContainer}`}>

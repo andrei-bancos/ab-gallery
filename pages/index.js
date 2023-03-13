@@ -25,7 +25,7 @@ export default function Home({websiteTitle, websiteDescription, websiteKeywords,
             {
               collections.map((collection, idx) => {
                 const backgroundImg = `linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.45)),
-                url(${collection.images[0].link})`;
+                url('https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_NAME}/image/upload/c_scale,w_1320/${collection.images[0].publicId}')`;
                 return (
                   <div
                     key={idx}
@@ -66,7 +66,13 @@ export default function Home({websiteTitle, websiteDescription, websiteKeywords,
                               whileInView={{opacity: 1}}
                               transition={{duration: 1, type: 'spring', bounce: 0.3}}
                               viewport={{ once: true, amount: 0.3 }}>
-                    <Image className={styles.image} src={img.link} width="416" height="312" alt="" />
+                    <Image
+                      className={styles.image}
+                      src={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_NAME}/image/upload/c_scale,w_416/${img.publicId}`}
+                      width="416"
+                      height="312"
+                      alt=""
+                    />
                   </motion.div>
                 )
               })
