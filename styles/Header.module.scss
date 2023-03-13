@@ -2,10 +2,9 @@
 .header {
   display: flex;
   height: 850px;
-  background: linear-gradient(80.7deg, rgba(109, 29, 241, 0.198) 0%, rgba(0, 0, 0, 0.801) 51.56%, rgba(0, 0, 0, 0.9) 100%), url("/headerBG.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 1920px auto;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: 1920px auto !important;
   .hContainer {
     display: flex;
     flex-direction: column;

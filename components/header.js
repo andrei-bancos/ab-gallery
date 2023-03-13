@@ -3,6 +3,7 @@ import Image from "next/image";
 import styles from "/styles/Header.module.scss";
 import {useRouter} from "next/router";
 import {useState} from "react";
+import headerBG from "/public/headerBG.jpg";
 
 export default function Header() {
   const router = useRouter();
@@ -18,7 +19,13 @@ export default function Header() {
 
   return (
     <>
-      <div className={styles.header}>
+      <div
+        className={styles.header}
+        style={{
+          background: `linear-gradient(80.7deg, rgba(109, 29, 241, 0.198) 0%, rgba(0, 0, 0, 0.801) 51.56%, 
+          rgba(0, 0, 0, 0.9) 100%), url(${headerBG.src})`
+      }}
+      >
         <div className={`container ${styles.hContainer}`}>
           <nav id={styles.navbarMobile}>
             <ul>
