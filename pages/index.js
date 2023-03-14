@@ -6,8 +6,10 @@ import Footer from "@/components/footer";
 import prisma from "@/prisma/client";
 import { motion } from "framer-motion";
 import {useState} from "react";
+import {useRouter} from "next/router";
 
 export default function Home({websiteTitle, websiteDescription, websiteKeywords, images, collections}) {
+  const router = useRouter();
   const [open, setOpen] = useState(false);
   return (
     <>
@@ -17,7 +19,7 @@ export default function Home({websiteTitle, websiteDescription, websiteKeywords,
         <meta name="keywords" content={websiteKeywords ? websiteKeywords.value : ''} />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header />
+      <Header headerText={<h1>Welcome to my photos <span style={{color: "#fff", textTransform: "uppercase"}}>gallery</span></h1>}/>
       <div className="container">
         <div className={styles.lastCollections}>
           <h2 className={styles.catTitle}>Last 3 collections added</h2>
@@ -45,7 +47,7 @@ export default function Home({websiteTitle, websiteDescription, websiteKeywords,
                         <span className={styles.imageCount}>({collection.images.length} images)</span>
                         <div className={styles.info}>
                           <p>{collection.description}</p>
-                          <button>See the pictures</button>
+                          <button onClick={() => router.push('/collection/' + collection.slug)}>See the pictures</button>
                         </div>
                       </motion.div>
                     : null}

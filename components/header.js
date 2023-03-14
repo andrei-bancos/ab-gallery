@@ -4,7 +4,7 @@ import styles from "/styles/Header.module.scss";
 import {useRouter} from "next/router";
 import {useState} from "react";
 
-export default function Header() {
+export default function Header({headerText, headerHeight}) {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
 
@@ -21,6 +21,7 @@ export default function Header() {
       <div
         className={styles.header}
         style={{
+          height: headerHeight,
           background: `linear-gradient(80.7deg, rgba(109, 29, 241, 0.198) 0%, rgba(0, 0, 0, 0.801) 51.56%, 
           rgba(0, 0, 0, 0.9) 100%), url("https://res.cloudinary.com/ddh7mvlcv/image/upload/c_scale,w_1920/headerBG_bb10wa")`
       }}
@@ -29,7 +30,7 @@ export default function Header() {
           <nav id={styles.navbarMobile}>
             <ul>
               <li><Link href="/" className={router.pathname === "/" ? styles.active : ""}>Home</Link></li>
-              <li><Link href="/" className={router.pathname === "/collections" ? styles.active : ""}>Collections</Link></li>
+              <li><Link href="/collections" className={router.pathname === "/collections" ? styles.active : ""}>Collections</Link></li>
               <li><Link href="/" className={router.pathname === "/contact" ? styles.active : ""}>Contact</Link></li>
             </ul>
           </nav>
@@ -39,7 +40,7 @@ export default function Header() {
             </Link>
             <ul id={styles.desktop}>
               <li><Link href="/" className={router.pathname === "/" ? styles.active : ""}>Home</Link></li>
-              <li><Link href="/" className={router.pathname === "/collections" ? styles.active : ""}>Collections</Link></li>
+              <li><Link href="/collections" className={router.pathname === "/collections" ? styles.active : ""}>Collections</Link></li>
               <li><Link href="/" className={router.pathname === "/contact" ? styles.active : ""}>Contact</Link></li>
             </ul>
             <Image id={styles.menu}
@@ -58,7 +59,7 @@ export default function Header() {
             />
           </nav>
           <div className={styles.text}>
-            <h1>Welcome to my photos <span style={{color: "#fff", textTransform: "uppercase"}}>gallery</span></h1>
+            {headerText}
           </div>
         </div>
       </div>
