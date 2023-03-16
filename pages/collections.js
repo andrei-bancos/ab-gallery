@@ -18,14 +18,14 @@ export default function Collections({collections}) {
       <Header headerHeight={350} headerText={<h1 style={{fontSize: '35px', color: '#fff'} }>Collections ({collections.length})</h1>} />
       <div className="container">
         <div className={styles.collections}>
-          {
+          { collections.length !== 0 ?
             collections.map((collection, idx) => {
               const backgroundImg = `linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.45)),
                 url('https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_NAME}/image/upload/c_scale,w_1320/${collection.images[0].publicId}')`;
               return (
                 <div
                   key={idx}
-                  className={styles.collection}
+                  className={styles.collections}
                   style={{background: backgroundImg, cursor: open === idx ? "default" : "pointer"}}
                   onClick={() => {setOpen(idx)}}
                 >
@@ -47,7 +47,7 @@ export default function Collections({collections}) {
                     : null}
                 </div>
               )
-            })
+            }) : <p className={styles.infoMSG}>Not found</p>
           }
         </div>
       </div>

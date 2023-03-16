@@ -24,7 +24,7 @@ export default function Home({websiteTitle, websiteDescription, websiteKeywords,
         <div className={styles.lastCollections}>
           <h2 className={styles.catTitle}>Last 3 collections added</h2>
           <div className={styles.collections}>
-            {
+            { collections.length !== 0 ?
               collections.map((collection, idx) => {
                 const backgroundImg = `linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.45)),
                 url('https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_NAME}/image/upload/c_scale,w_1320/${collection.images[0].publicId}')`;
@@ -53,14 +53,14 @@ export default function Home({websiteTitle, websiteDescription, websiteKeywords,
                     : null}
                   </div>
                 )
-              })
+              }) : <p className={styles.infoMSG}>Not found</p>
             }
           </div>
         </div>
         <div className={styles.lastPhotos}>
           <h2 className={styles.catTitle}>Last photos added</h2>
           <div className="row" style={{display: "flex", alignItems: "center"}}>
-            {
+            { images.length !== 0 ?
               images.map(img => {
                 return(
                   <motion.div key={img.id} className="col-md-4 mt-3 col-lg-4"
@@ -77,7 +77,7 @@ export default function Home({websiteTitle, websiteDescription, websiteKeywords,
                     />
                   </motion.div>
                 )
-              })
+              }) : <div className="col"><p className={styles.infoMSG}>Not found</p></div>
             }
           </div>
         </div>

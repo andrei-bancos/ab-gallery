@@ -31,7 +31,7 @@ export default function Header({headerText, headerHeight}) {
             <ul>
               <li><Link href="/" className={router.pathname === "/" ? styles.active : ""}>Home</Link></li>
               <li><Link href="/collections" className={router.pathname === "/collections" ? styles.active : ""}>Collections</Link></li>
-              <li><Link href="/" className={router.pathname === "/contact" ? styles.active : ""}>Contact</Link></li>
+              <li><Link href="/contact" className={router.pathname === "/contact" ? styles.active : ""}>Contact</Link></li>
             </ul>
           </nav>
           <nav className={styles.navbar}>
@@ -41,7 +41,7 @@ export default function Header({headerText, headerHeight}) {
             <ul id={styles.desktop}>
               <li><Link href="/" className={router.pathname === "/" ? styles.active : ""}>Home</Link></li>
               <li><Link href="/collections" className={router.pathname === "/collections" ? styles.active : ""}>Collections</Link></li>
-              <li><Link href="/" className={router.pathname === "/contact" ? styles.active : ""}>Contact</Link></li>
+              <li><Link href="/contact" className={router.pathname === "/contact" ? styles.active : ""}>Contact</Link></li>
             </ul>
             <Image id={styles.menu}
                    src="/menu.svg"
