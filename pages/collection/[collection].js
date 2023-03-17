@@ -34,7 +34,7 @@ export default function Collection({collection}) {
                             viewport={{ once: true, amount: 0.3 }}>
                   <Image
                     className={styles.image}
-                    src={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_NAME}/image/upload/c_scale,w_416/${img.publicId}`}
+                    src={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_NAME}/image/upload/c_scale,w_720/${img.publicId}`}
                     width="416"
                     height="312"
                     alt=""

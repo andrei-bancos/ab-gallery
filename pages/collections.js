@@ -25,7 +25,7 @@ export default function Collections({collections}) {
               return (
                 <div
                   key={idx}
-                  className={styles.collections}
+                  className={styles.collection}
                   style={{background: backgroundImg, cursor: open === idx ? "default" : "pointer"}}
                   onClick={() => {setOpen(idx)}}
                 >
@@ -41,7 +41,7 @@ export default function Collections({collections}) {
                       <span className={styles.imageCount}>({collection.images.length} images)</span>
                       <div className={styles.info}>
                         <p>{collection.description}</p>
-                        <button onClick={() => router.push('/collection/' + collection.slug)}>See the pictures</button>
+                        <button onClick={() => router.push('/collection/' + collection.slug)}>See the photos</button>
                       </div>
                     </motion.div>
                     : null}

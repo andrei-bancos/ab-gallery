@@ -1,7 +1,10 @@
 @import "colors";
 .collections {
   display: flex;
+  flex-direction: column;
   min-height: 100vh;
+  gap: 50px 0;
+  margin: 50px 0;
   .infoMSG {
     color: #333;
     font-size: 20px;
@@ -21,9 +24,9 @@
     justify-content: center;
     align-items: center;
     width: 100%;
+    height: fit-content;
     box-sizing: content-box;
     padding: 50px 0;
-    margin: 50px 0;
     background-repeat: no-repeat !important;
     background-size: cover !important;
     background-position: center !important;
@@ -62,6 +65,7 @@
           font-weight: 500;
           width: 160px;
           height: 60px;
+          align-self: center;
           cursor: pointer;
           border: none;
           border-radius: 10px;
