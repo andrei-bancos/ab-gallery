@@ -18,6 +18,7 @@ export default function GeneralSettings({gSettings}) {
   const [youtube, setYoutube] = useState(gSettings.youtube === null ? '' : gSettings.youtube.value);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(false);
+  const [saveBtnMsg, setSaveBtnMsg] = useState('Save');
 
   const handleTitleChange = (e) => {
     setTitle(e.target.value);
@@ -59,7 +60,7 @@ export default function GeneralSettings({gSettings}) {
 
   const saveData = async (e) => {
     e.preventDefault();
-
+    setSaveBtnMsg('Waiting..');
     await fetch('/api/admin/generalSettings', {
       method: 'POST',
       body: JSON.stringify(data),
@@ -67,6 +68,7 @@ export default function GeneralSettings({gSettings}) {
       if(res.status === 200) {
         setError(false);
         setSuccess(true);
+        setSaveBtnMsg('Save');
         setTimeout(() => setSuccess(false), 3000)
       } else {
         setError(true);
@@ -173,7 +175,7 @@ export default function GeneralSettings({gSettings}) {
                   </div>
                 </div>
               </div>
-              <button type="submit">Save</button>
+              <button type="submit">{saveBtnMsg}</button>
             </form>
           </div>
         </div>

@@ -5,8 +5,57 @@ import styles from "/styles/Contact.module.scss";
 import Link from "next/link";
 import Image from "next/image";
 import prisma from "@/prisma/client";
+import {useState} from "react";
 
 export default function Contact({instagram, facebook, twitter, youtube}) {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [subject, setSubject] = useState('');
+  const [message, setMessage] = useState('');
+  const [sendBtnMsg, setSendBtnMsg] = useState('Send');
+
+  const handleNameChange = (e) => {
+    setName(e.target.value);
+  }
+
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+  }
+
+  const handleSubjectChange = (e) => {
+    setSubject(e.target.value);
+  }
+
+  const handleMessageChange = (e) => {
+    setMessage(e.target.value);
+  }
+
+  let data = {
+    name,
+    email,
+    subject,
+    message
+  }
+
+  const sendMessage = async (e) => {
+    e.preventDefault();
+    setSendBtnMsg('Waiting..');
+    await fetch('/api/contact', {
+      method: 'POST',
+      body: JSON.stringify(data)
+    }).then((res) => {
+      if(res.status === 200) {
+        setName('');
+        setEmail('');
+        setSubject('');
+        setMessage('');
+        setSendBtnMsg('Sent!');
+        setTimeout(() => setSendBtnMsg('Send'), 3000);
+      } else {
+        setTimeout(() => setSendBtnMsg('Error'), 5000);
+      }
+    })
+  }
   return (
     <>
       <Head>
@@ -15,16 +64,16 @@ export default function Contact({instagram, facebook, twitter, youtube}) {
       <Header headerHeight={300} />
       <div className="container">
         <div className={styles.contact}>
-          <form>
+          <form onSubmit={sendMessage}>
             <div className={styles.head}>
               <h1>Contact</h1>
               <p>If you want contact us use below form.</p>
             </div>
-            <input type="text" placeholder="Full name"/>
-            <input type="email" placeholder="Email address"/>
-            <input type="text" placeholder="Subject"/>
-            <textarea placeholder="Message.."></textarea>
-            <button type="submit" className={styles.sendBTN}>Send</button>
+            <input type="text" placeholder="Full name" value={name} onChange={handleNameChange} required/>
+            <input type="email" placeholder="Email address" value={email} onChange={handleEmailChange} required/>
+            <input type="text" placeholder="Subject" value={subject} onChange={handleSubjectChange} required/>
+            <textarea placeholder="Message.." value={message} onChange={handleMessageChange} required></textarea>
+            <button type="submit" className={styles.sendBTN}>{sendBtnMsg}</button>
           </form>
           <span>OR</span>
           <div className={styles.socialMedia}>

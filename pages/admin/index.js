@@ -18,7 +18,7 @@ export default function AdminIndex() {
         <div className={styles.admin}>
           <AdminNavBar />
           <div className={`container ${styles.container}`}>
-            <div className={styles.generalSettings} onClick={() => router.push("/admin/general-settings")}>
+            <div className={styles.solo} onClick={() => router.push("/admin/general-settings")}>
               <Image src="/img/admin/gsettings.svg" width="60" height="56" alt="general settings" />
               <h3>General settings</h3>
             </div>
@@ -31,6 +31,10 @@ export default function AdminIndex() {
                 <Image src="/img/admin/collections.svg" width="150" height="150" alt="add" />
                 <h3>View existent collections</h3>
               </div>
+            </div>
+            <div className={styles.solo} onClick={() => router.push("/admin/contact")}>
+              <Image src="/img/admin/messages.svg" width="60" height="60" alt="contact" />
+              <h3>Contact messages</h3>
             </div>
           </div>
         </div>

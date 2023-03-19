@@ -19,7 +19,7 @@
       text-align: center;
       margin: 0 30px;
     }
-    .generalSettings, .col {
+    .solo, .col {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -27,9 +27,9 @@
       border-radius: 10px;
       cursor: pointer;
       background-color: #ffffff;
-      box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.25);
+      box-shadow: 0 4px 5px rgba(0, 0, 0, 0.25);
     }
-    .generalSettings {
+    .solo {
       flex-direction: row;
       flex-wrap: wrap;
       gap: 20px 50px;
@@ -53,7 +53,7 @@
 }
 
 @media only screen and (max-width: 768px){
-  .generalSettings {
+  .solo {
     padding: 80px !important;
     h3 {
       margin: 0 30px !important;

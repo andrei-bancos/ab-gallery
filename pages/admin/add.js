@@ -14,6 +14,7 @@ export default function Add() {
   const [images, setImages] = useState([]);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState('');
+  const [addBtnMsg, setAddBtnMsg] = useState('Add');
 
   const handlerNameChange = (e) => {
     setName(e.target.value);
@@ -51,6 +52,7 @@ export default function Add() {
 
   const addCollection = async (e) => {
     e.preventDefault();
+    setAddBtnMsg('Waiting..');
     let data = {
       name,
       description,
@@ -72,12 +74,18 @@ export default function Add() {
           fetch('/api/admin/upload', {
             body: JSON.stringify(data),
             method: "POST"
-          }).then(() => {
-            setName('');
-            setDescription('');
-            setImages([]);
-            setSuccess(true);
-            setTimeout(() => setSuccess(false), 4000);
+          }).then((res) => {
+            if(res.status === 200) {
+              setName('');
+              setDescription('');
+              setImages([]);
+              setSuccess(true);
+              setAddBtnMsg('Add');
+              setTimeout(() => setSuccess(false), 4000);
+            } else {
+              setError('Check console.');
+              setAddBtnMsg('Add');
+            }
           })
         }
       }
@@ -130,7 +138,7 @@ export default function Add() {
                   </div>
                 </div>
               </div>
-              <button className={styles.addBTN} type="submit">Add</button>
+              <button className={styles.addBTN} type="submit">{addBtnMsg}</button>
             </form>
           </div>
           <Footer />

@@ -31,3 +31,11 @@ model Images {
   Collections   Collections? @relation(fields: [collectionsId], references: [id])
   collectionsId Int?
 }
+
+model Contact {
+  id       Int    @id @default(autoincrement())
+  fullName String
+  email    String
+  subject  String
+  message  String
+}
