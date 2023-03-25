@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Footer() {
   const goTop = () => {
@@ -7,7 +8,12 @@ export default function Footer() {
   return (
     <footer>
       <div className="container footer">
-        <p>Copyright © websitename.com</p>
+        <div className="left">
+          <p>Copyright © websitename.com</p>
+          <p className="created">
+            Created by <Link href="https://andreibancos.com" target="_blank">andreibancos.com</Link>
+          </p>
+        </div>
         <Image src="/top.svg" width="80" height="80" alt="go top" onClick={() => goTop()} />
       </div>
     </footer>

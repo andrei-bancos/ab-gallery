@@ -5,8 +5,10 @@ import prisma from "@/prisma/client";
 import {motion} from "framer-motion";
 import Image from "next/image";
 import styles from "@/styles/Collection.module.scss";
+import {useRouter} from "next/router";
 
 export default function Collection({collection}) {
+  const router = useRouter();
   return(
     <>
       <Head>
@@ -38,6 +40,7 @@ export default function Collection({collection}) {
                     width="416"
                     height="312"
                     alt=""
+                    onClick={() => router.push('/photo/' + img.id)}
                   />
                 </motion.div>
               )

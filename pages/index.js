@@ -74,6 +74,7 @@ export default function Home({websiteTitle, websiteDescription, websiteKeywords,
                       width="416"
                       height="312"
                       alt=""
+                      onClick={() => router.push('/photo/' + img.id)}
                     />
                   </motion.div>
                 )

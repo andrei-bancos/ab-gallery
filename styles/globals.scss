@@ -13,20 +13,44 @@ body {
 footer {
   display: flex;
   align-items: center;
-  height: 100px;
+  padding: 35px 0;
   background-color: #140330;
-  p {
-    color: #ffffff;
-    font-size: 18px;
-    font-weight: 400;
-    text-transform: uppercase;
+  .left {
+    p {
+      color: #ffffff;
+      font-size: 18px;
+      font-weight: 400;
+      text-transform: uppercase;
+    }
+    .created {
+      font-size: 16px;
+      margin-top: 10px;
+      text-transform: none;
+      a {
+        color: #ffffff;
+      }
+    }
   }
   .footer {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px 100px;
     align-items: center;
     img {
       cursor: pointer;
+      align-self: center;
+    }
+  }
+  @media only screen and (max-width: 480px) {
+    .left {
+      text-align: center;
+      p {
+        font-size: 16px;
+      }
+    }
+    .footer {
+      justify-content: center;
     }
   }
 }
