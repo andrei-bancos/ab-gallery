@@ -29,9 +29,13 @@ export default function Home({websiteTitle, websiteDescription, websiteKeywords,
                 const backgroundImg = `linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.45)),
                 url('https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_NAME}/image/upload/c_scale,w_1320/${collection.images[0].publicId}')`;
                 return (
-                  <div
+                  <motion.div
                     key={idx}
                     className={styles.collection}
+                    initial={{opacity: 0}}
+                    whileInView={{opacity: 1}}
+                    transition={{duration: 1, type: 'spring', bounce: 0.3}}
+                    viewport={{ once: true, amount: 0.3 }}
                     style={{background: backgroundImg, cursor: open === idx ? "default" : "pointer"}}
                     onClick={() => {setOpen(idx)}}
                   >
@@ -51,7 +55,7 @@ export default function Home({websiteTitle, websiteDescription, websiteKeywords,
                         </div>
                       </motion.div>
                     : null}
-                  </div>
+                  </motion.div>
                 )
               }) : <p className={styles.infoMSG}>Not found</p>
             }
