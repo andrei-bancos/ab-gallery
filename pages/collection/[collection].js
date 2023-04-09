@@ -2,13 +2,9 @@ import Head from "next/head";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import prisma from "@/prisma/client";
-import {motion} from "framer-motion";
-import Image from "next/image";
-import styles from "@/styles/Collection.module.scss";
-import {useRouter} from "next/router";
+import Photos from "@/components/photos";
 
 export default function Collection({collection}) {
-  const router = useRouter();
   return(
     <>
       <Head>
@@ -25,28 +21,7 @@ export default function Collection({collection}) {
         }
       />
       <div className="container">
-        <div className={`row d-flex align-items-center ${styles.images}`}>
-          {
-            collection.images.map(img => {
-              return(
-                <motion.div key={img.id} className="col-md-4 mt-3 col-lg-4"
-                            initial={{opacity: 0}}
-                            whileInView={{opacity: 1}}
-                            transition={{duration: 1, type: 'spring', bounce: 0.3}}
-                            viewport={{ once: true, amount: 0.3 }}>
-                  <Image
-                    className={styles.image}
-                    src={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_NAME}/image/upload/c_scale,w_720/${img.publicId}`}
-                    width="416"
-                    height="312"
-                    alt=""
-                    onClick={() => router.push('/photo/' + img.id)}
-                  />
-                </motion.div>
-              )
-            })
-          }
-        </div>
+        <Photos content={collection.images} />
       </div>
       <Footer />
     </>

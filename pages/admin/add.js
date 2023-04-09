@@ -52,7 +52,6 @@ export default function Add() {
 
   const addCollection = async (e) => {
     e.preventDefault();
-    setAddBtnMsg('Waiting..');
     let data = {
       name,
       description,
@@ -71,6 +70,7 @@ export default function Add() {
           setError('Add images...');
         } else {
           setError('');
+          setAddBtnMsg('Waiting..');
           fetch('/api/admin/upload', {
             body: JSON.stringify(data),
             method: "POST"

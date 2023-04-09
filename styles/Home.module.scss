@@ -82,19 +82,3 @@
     }
   }
 }
-
-.lastPhotos {
-  margin-bottom: 50px;
-  .image {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    cursor: pointer;
-    user-select: none;
-    transition: 0.3s;
-    filter: drop-shadow(0px 1px 5px rgba(0, 0, 0, 0.9))
-  }
-  .image:hover {
-    opacity: 0.6;
-  }
-}

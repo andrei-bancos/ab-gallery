@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import styles from '@/styles/Home.module.scss'
 import Header from "@/components/header";
 import Footer from "@/components/footer";
@@ -7,6 +6,7 @@ import prisma from "@/prisma/client";
 import { motion } from "framer-motion";
 import {useState} from "react";
 import {useRouter} from "next/router";
+import Photos from "@/components/photos";
 
 export default function Home({websiteTitle, websiteDescription, websiteKeywords, images, collections}) {
   const router = useRouter();
@@ -63,28 +63,7 @@ export default function Home({websiteTitle, websiteDescription, websiteKeywords,
         </div>
         <div className={styles.lastPhotos}>
           <h2 className={styles.catTitle}>Last photos added</h2>
-          <div className="row" style={{display: "flex", alignItems: "center"}}>
-            { images.length !== 0 ?
-              images.map(img => {
-                return(
-                  <motion.div key={img.id} className="col-md-4 mt-3 col-lg-4"
-                              initial={{opacity: 0}}
-                              whileInView={{opacity: 1}}
-                              transition={{duration: 1, type: 'spring', bounce: 0.3}}
-                              viewport={{ once: true, amount: 0.3 }}>
-                    <Image
-                      className={styles.image}
-                      src={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_NAME}/image/upload/c_scale,w_720/${img.publicId}`}
-                      width="416"
-                      height="312"
-                      alt=""
-                      onClick={() => router.push('/photo/' + img.id)}
-                    />
-                  </motion.div>
-                )
-              }) : <div className="col"><p className={styles.infoMSG}>Not found</p></div>
-            }
-          </div>
+          <Photos content={images} />
         </div>
       </div>
       <Footer />
