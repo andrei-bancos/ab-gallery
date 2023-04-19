@@ -1,8 +1,8 @@
-import {getSession} from "next-auth/react";
+import { getServerSession } from "next-auth/next";
 import prisma from "@/prisma/client";
 
 export default async function deleteContactMsg(req, res) {
-  const session = await getSession({req});
+  const session = await getServerSession(req, res);
   if(req.method === "DELETE" && session && session.user.email === process.env.adminEmail) {
     const msgId = parseInt(req.body);
     try {

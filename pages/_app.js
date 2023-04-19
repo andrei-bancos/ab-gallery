@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap-grid.css';
 import '@/styles/globals.scss';
-import { Open_Sans } from "@next/font/google";
+import { Open_Sans } from "next/font/google";
 import {SessionProvider} from "next-auth/react";
 
 const website_font = Open_Sans({ subsets: ['latin'] });
