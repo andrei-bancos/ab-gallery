@@ -29,7 +29,7 @@ export default function Photos({content}) {
                                         viewport={{ once: true, amount: 0.3 }}>
                                 <Image
                                     className={styles.image}
-                                    src={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_NAME}/image/upload/c_scale,w_720/${img.publicId}`}
+                                    src={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_NAME}/image/upload/c_scale,w_720/${img.publicId}.` + img.extension}
                                     width="416"
                                     height="312"
                                     alt=""

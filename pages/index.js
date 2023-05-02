@@ -84,7 +84,7 @@ export async function getServerSideProps() {
       }
     });
     const images = await prisma.images.findMany({
-      take: 9,
+      take: 15,
       orderBy: {
         id: 'desc'
       }

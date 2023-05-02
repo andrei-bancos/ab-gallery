@@ -32,7 +32,7 @@ export default function PhotoId({img}) {
           <motion.div initial={{opacity: 0}} animate={{opacity: isLoading ? 0 : 1}} transition={{duration: 0.5}}>
             <Image
               className={styles.image}
-              src={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_NAME}/image/upload/c_scale,w_2560/${img.publicId}`}
+              src={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_NAME}/image/upload/c_scale,w_2560/${img.publicId}.` + img.extension}
               width={1280}
               height={960}
               alt=""

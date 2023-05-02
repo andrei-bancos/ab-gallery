@@ -26,6 +26,7 @@ export default async function upload(req, res) {
             const addImages = await prisma.images.create({
               data: {
                 publicId: res.public_id,
+                extension: res.format,
                 link: res.secure_url,
                 collectionsId: addCollection.id
               }
@@ -50,6 +51,7 @@ export default async function upload(req, res) {
           const addImage = await prisma.images.create({
             data: {
               publicId: res.public_id,
+              extension: res.format,
               link: res.secure_url,
               collectionsId: data.id
             }
