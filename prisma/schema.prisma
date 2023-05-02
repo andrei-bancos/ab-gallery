@@ -27,6 +27,7 @@ model Collections {
 model Images {
   id            Int          @id @default(autoincrement())
   publicId      String       @unique
+  extension     String
   link          String
   Collections   Collections? @relation(fields: [collectionsId], references: [id])
   collectionsId Int?
